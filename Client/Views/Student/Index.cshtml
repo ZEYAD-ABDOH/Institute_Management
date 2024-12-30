@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Client.Model.Student>
+
+@{
+    ViewData["Title"] = "Index";
+    
+
+}
+
+
+<div class="container">
+<div> 
+<h3 class="text-center">معلومات طلاب </h3>
+
+</div>
+<table class="table table-striped  table-hover">
+    <thead>
+        <tr>
+          
+            <th>
+               الاسم بالكامل
+            </th>
+            <th>
+               رقم الموبايل
+            </th>
+            <th>
+             تاريخ الميلاد
+            </th>
+            <th>
+                نوع
+            </th>
+            <th>
+               الايميل
+            </th>
+            <th>
+             العنوان
+            </th>
+                <th>  <a asp-action="Create" class="btn btn-outline-info">أضافة طالب جديد</a>
+                    </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.NameFull)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_B)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Geneder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
